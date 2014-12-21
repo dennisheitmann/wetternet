@@ -35,7 +35,7 @@ void setup() {
   dht.begin();
 
   uint8_t mac[6] = { 0xDE,0xAD,0xBE,0xEF,0xDD,0xEE };
-  IPAddress myIP(192,168,0,222);
+  IPAddress myIP(192,168,1,90);
   Ethernet.begin(mac,myIP);
   server.begin();
 } 
