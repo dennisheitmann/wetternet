@@ -57,7 +57,7 @@ void readSensors() {
   
     temp_bmp = pressure.readTemperature(); 
     pres_bmp = pressure.readPressure();
-    baro_bmp = pressure.readSealevelPressure(535) * 0.01;
+    baro_bmp = pressure.readSealevelPressure(185) * 0.01;
     sensors.setResolution(TEMP_12_BIT);
     sensors.requestTemperatures();
     temp_1wi = sensors.getTempCByIndex(0);
