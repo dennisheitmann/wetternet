@@ -68,19 +68,19 @@ void readSensors() {
 
 void printData() {
 
-  Serial.print("value.temp_bmp ");
+  Serial.print("temp_bmp.value ");
   Serial.print(temp_bmp);
   Serial.print(";");
-  Serial.print("value.baro_bmp ");
+  Serial.print("baro_bmp.value ");
   Serial.print(baro_bmp);
   Serial.print(";");
-  Serial.print("value.temp_1wi ");
+  Serial.print("temp_1wi.value ");
   Serial.print(temp_1wi);
   Serial.print(";");
-  Serial.print("value.temp_dht ");
+  Serial.print("temp_dht.value ");
   Serial.print(temp_dht);
   Serial.print(";");
-  Serial.print("value.humi_dht ");
+  Serial.print("humi_dht.value ");
   Serial.print(humi_dht);
   Serial.print(";");
   Serial.println();
@@ -92,19 +92,19 @@ void ethernetClient() {
   if (EthernetClient client = server.available())
   {
     readSensors();
-    client.print("value.temp_bmp ");
+    client.print("temp_bmp.value ");
     client.print(temp_bmp);
     client.print(";");
-    client.print("value.baro_bmp ");
+    client.print("baro_bmp.value ");
     client.print(baro_bmp);
     client.print(";");
-    client.print("value.temp_1wi ");
+    client.print("temp_1wi.value ");
     client.print(temp_1wi);
     client.print(";");
-    client.print("value.temp_dht ");
+    client.print("temp_dht.value ");
     client.print(temp_dht);
     client.print(";");
-    client.print("value.humi_dht ");
+    client.print("humi_dht.value ");
     client.print(humi_dht);
     client.print(";");
     client.println();
