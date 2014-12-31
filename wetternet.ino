@@ -34,7 +34,8 @@ void setup() {
   sensors.begin();
   dht.begin();
 
-  uint8_t mac[6] = { 0xDE,0xAD,0xBE,0xEF,0xDD,0xEE };
+  uint8_t mac[6] = { 
+    0xDE,0xAD,0xBE,0xEF,0xDD,0xEE   };
   IPAddress myIP(192,168,1,90);
   Ethernet.begin(mac,myIP);
   server.begin();
@@ -48,21 +49,27 @@ void loop() {
     printData();
     previousMillis = millis();
   }
+  if ((millis() - previousMillis) < 0)
+  {
+    readSensors();
+    printData();
+    previousMillis = millis();
+  }
 
   ethernetClient();
 
 } 
 
 void readSensors() {
-  
-    temp_bmp = pressure.readTemperature(); 
-    pres_bmp = pressure.readPressure();
-    baro_bmp = pressure.readSealevelPressure(185) * 0.01;
-    sensors.setResolution(TEMP_12_BIT);
-    sensors.requestTemperatures();
-    temp_1wi = sensors.getTempCByIndex(0);
-    temp_dht = dht.readTemperature();
-    humi_dht = dht.readHumidity();
+
+  temp_bmp = pressure.readTemperature(); 
+  pres_bmp = pressure.readPressure();
+  baro_bmp = pressure.readSealevelPressure(185) * 0.01;
+  sensors.setResolution(TEMP_12_BIT);
+  sensors.requestTemperatures();
+  temp_1wi = sensors.getTempCByIndex(0);
+  temp_dht = dht.readTemperature();
+  humi_dht = dht.readHumidity();
 
 }  
 
@@ -112,6 +119,7 @@ void ethernetClient() {
     client.stop();
   }
 }
+
 
 
 
