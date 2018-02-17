@@ -1,8 +1,8 @@
 #include <Wire.h>
-#include "Adafruit_BMP085.h"
-#include "OneWire.h"
-#include "DallasTemperature.h"
-#include "DHT.h"
+#include <Adafruit_BMP085.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <DHT.h>
 #include <UIPEthernet.h>
 
 Adafruit_BMP085 pressure;
